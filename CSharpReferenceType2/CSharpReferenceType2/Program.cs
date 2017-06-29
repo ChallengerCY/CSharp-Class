@@ -25,7 +25,7 @@ namespace CSharpReferenceType2
 
     //class 类型的使用
     //class 默认的访问权限是internal
-    class Person 
+    class Person :Man,Isuper
     { 
         //class里面可以包含成员变量和方法，构造函数
         //还有属性等
@@ -59,5 +59,29 @@ namespace CSharpReferenceType2
                 age = value - 10;
             }
         }
+
+        public int GetSuper()
+        {
+            return age + 100;
+        }
+
+        public override int GetAbstract()
+        {
+            return 50;
+        }
+    }
+    
+    //创建一个抽象类
+    //抽象类不能被实例化，但是可以被其它的类继承，去实现里面的具体方法
+    abstract class Man 
+    {
+        public abstract int GetAbstract();
+    }
+
+    //编写接口,命名时开头以I字母大写
+    //接口与抽象类的区别在于，里面只能有方法，属性，索引和事件
+    interface Isuper 
+    {
+        int GetSuper();
     }
 }
